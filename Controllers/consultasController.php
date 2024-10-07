@@ -30,4 +30,54 @@ class consultasVentasController{
         $ventas = $this->model->obtenerVentasPorUsuario($email);
         echo json_encode($ventas);
     }
+    
+    public function listarVentasEntreFechas(){
+        $fechaInicial = $_GET['fechaInicial'] ?? '';
+        $fechaFinal = $_GET['fechaFinal'] ?? '';
+    
+        if ($fechaInicial && $fechaFinal){
+            $ventas = $this->model->obtenerVentasEntreFechas($fechaInicial, $fechaFinal);
+            
+            if (count($ventas) > 0) {
+                echo json_encode($ventas);
+            } else {
+                echo json_encode(['mensaje' => 'No se encontraron ventas en el rango de fechas.']);
+            }
+        } else {
+            echo json_encode(['error' => 'Por favor, proporcione ambas fechas.']);
+        }
+    }
+
+    public function listarVentasPorSabor(){
+        $sabor = $_GET['sabor'] ?? '';
+
+        if ($sabor){
+            $ventas = $this->model->obtenerVentasPorSabor($sabor);
+
+            if (count($ventas) > 0){
+                echo json_encode($ventas);
+            } else{
+                echo json_encode(['mensaje' => 'No se encontraron ventas con ese sabor de helado.']);
+            }
+        } else {
+            echo json_encode(['error' => 'Por favor, proporcione ambas fechas.']);
+        }
+    }
+    public function listarVentasPorTipoVaso(){
+        $vaso = $_GET['vaso'] ?? '';
+
+        if ($vaso){
+            $ventas = $this->model->obtenerVentasPorVaso($vaso);
+
+            if (count($ventas) > 0){
+                echo json_encode($ventas);
+            } else{
+                echo json_encode(['mensaje' => 'No se encontraron ventas con ese tipo de vaso.']);
+            }
+        } else {
+            echo json_encode(['error' => 'Por favor, proporcione un tipo de vaso.']);
+        }
+
+    }
+    
 }

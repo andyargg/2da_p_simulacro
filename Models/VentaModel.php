@@ -24,7 +24,7 @@ class VentaModel{
 
     }
     
-    public function altaVenta($email, $sabor, $tipo, $cantidad, $imagenPath) {
+    public function altaVenta($email, $sabor, $tipo, $vaso, $cantidad, $imagenPath) {
         $heladoModel = new HeladoModel();
     
         if ($heladoModel->actualizarStock($sabor, $tipo, $cantidad)) {
@@ -35,6 +35,7 @@ class VentaModel{
                 'email' => $email,
                 'sabor' => $sabor,
                 'tipo' => $tipo,
+                'vaso' => $vaso,
                 'cantidad' => $cantidad,
                 'fecha' => $fecha,
                 'imagen' => $imagenPath
@@ -48,8 +49,7 @@ class VentaModel{
         return "No hay suficiente stock";
     }
     
-    public function consultarHelado(){
-    }
+   
     public function contarHeladosVendidos($fecha){
         $ventas = $this->obtenerVentas();
         $cantidad = 0;
@@ -71,6 +71,46 @@ class VentaModel{
             }
         }
         return $resultados;
+    }
+    public function obtenerVentasEntreFechas($fechaInicial, $fechaFinal){
+        $ventas = $this->obtenerVentas();
+        $ventasFiltradas = [];
+
+        foreach ($ventas as $venta){
+            $fechaVenta = date('d-m-Y', strtotime($venta['fecha']));
+            
+            if ($fechaVenta >= $fechaInicial && $fechaVenta <=$fechaFinal){
+                $ventasFiltradas[] = $venta;
+            }
+        }
+        usort($ventasFiltradas, function($a, $b) {
+            return strcmp($a['email'], $b['email']);
+        });
+
+        return $ventasFiltradas;
+    }
+    public function obtenerVentasPorSabor($sabor){
+        $ventas = $this->obtenerVentas();
+        $ventasFiltradasSabor = [];
+
+        foreach ($ventas as $venta){
+            if ($venta['sabor'] === $sabor){
+                $ventasFiltradasSabor[] = $venta;
+            }
+        }
+
+        return $ventasFiltradasSabor;
+    }
+    public function obtenerVentasPorVaso($tipoVaso){
+        $ventas = $this->obtenerVentas();
+        $ventasFiltradasVaso = [];
+
+        foreach ($ventas as $venta){
+            if ($venta['vaso'] === $tipoVaso){
+                $ventasFiltradasVaso[] = $venta;
+            }
+        }
+        return $ventasFiltradasVaso;
     }
 
 }

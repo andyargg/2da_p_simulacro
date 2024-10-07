@@ -13,6 +13,7 @@ class VentaController{
         $email = $_POST['email'];
         $sabor = $_POST['sabor'];
         $tipo = $_POST['tipo'];
+        $vaso = $_POST['vaso'];
         $cantidad = $_POST['stock'];
 
         $directory ='/1ra_parte_simulacro/ImagenesDeLaVenta/2024/';
@@ -26,7 +27,7 @@ class VentaController{
 
         // Mover el archivo subido a la carpeta correspondiente
         if (move_uploaded_file($_FILES['imagen']['tmp_name'], $imagenPath)) {
-            $resultado = $this->model->altaVenta($email, $sabor, $tipo, $cantidad, $imagenPath);
+            $resultado = $this->model->altaVenta($email, $sabor, $tipo, $vaso, $cantidad, $imagenPath);
             echo json_encode(['resultado' => $resultado]);
         } else {
             echo json_encode(['resultado' => 'Error al subir la imagen']);

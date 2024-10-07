@@ -6,7 +6,17 @@
         "precio": 50,
         "tipo": "crema",
         "vaso": "plastico",
-        "stock": 18,
+        "stock": 8,
         "imagen": "ImagenesDeHelados\/2024\/crema americana_crema.jpg"
+    },
+    {
+        "dia": "07-10-2024",
+        "id": 2,
+        "sabor": "limon",
+        "precio": 50,
+        "tipo": "agua",
+        "vaso": "plastico",
+        "stock": 23,
+        "imagen": "ImagenesDeHelados\/2024\/limon_agua.jpg"
     }
 ]

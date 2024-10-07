@@ -1,9 +1,4 @@
-<!-- HeladeriaAlta.php: (por POST) se ingresa Sabor, Precio, Tipo (“Agua” o “Crema”), Vaso (“Cucurucho”,
-“Plástico”), Stock (unidades).
-Se guardan los datos en en el archivo de texto heladeria.json, tomando un id autoincremental como
-identificador(emulado) .Sí el nombre y tipo ya existen , se actualiza el precio y se suma al stock existente.
-completar el alta con imagen del helado, guardando la imagen con el sabor y tipo como identificación en la
-carpeta /ImagenesDeHelados/2024. -->
+
 <?php
 
 class HeladoModel{

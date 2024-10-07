@@ -42,7 +42,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $controller = new ConsultasVentasController();
             $controller->listarVentasPorUsuario();
             break;
-            
+
+        case 'listarVentasEntreFechas':
+            $controller = new ConsultasVentasController();
+            $controller->listarVentasEntreFechas();
+            break;
+        
+        case 'listarVentasPorSabor':
+            $controller = new ConsultasVentasController();
+            $controller->listarVentasPorSabor();
+            break;
+        
+        case 'listarVentasPorTipoVaso':
+            $controller = new ConsultasVentasController();
+            $controller->listarVentasPorTipoVaso();
+            break;
+
         default:
             echo json_encode(['error' => 'Accion no reconocida']);
             break;

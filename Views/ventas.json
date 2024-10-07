@@ -4,6 +4,27 @@
         "email": "usuario1@gmail.com",
         "sabor": "crema americana",
         "tipo": "crema",
+        "vaso": "plastico",
+        "cantidad": "5",
+        "fecha": "07-10-2024",
+        "imagen": "\/1ra_parte_simulacro\/ImagenesDeLaVenta\/2024\/crema americana_crema_usuario1_07-10-2024.jpg"
+    },
+    {
+        "id": 931,
+        "email": "usuario1@gmail.com",
+        "sabor": "crema americana",
+        "tipo": "crema",
+        "vaso": "plastico",
+        "cantidad": "5",
+        "fecha": "07-10-2024",
+        "imagen": "\/1ra_parte_simulacro\/ImagenesDeLaVenta\/2024\/crema americana_crema_usuario1_07-10-2024.jpg"
+    },
+    {
+        "id": 9521,
+        "email": "usuario1@gmail.com",
+        "sabor": "crema americana",
+        "tipo": "crema",
+        "vaso": "cucurucho",
         "cantidad": "5",
         "fecha": "07-10-2024",
         "imagen": "\/1ra_parte_simulacro\/ImagenesDeLaVenta\/2024\/crema americana_crema_usuario1_07-10-2024.jpg"
