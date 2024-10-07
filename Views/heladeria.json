@@ -1,1 +1,12 @@
-[{"id":1,"sabor":"chocolate","precio":24,"tipo":"crema","vaso":"grande","stock":23,"imagen":"ImagenesDeHelados\/2024\/chocolate_crema.jpg"}]
+[
+    {
+        "dia": "07-10-2024",
+        "id": 1,
+        "sabor": "crema americana",
+        "precio": 50,
+        "tipo": "crema",
+        "vaso": "plastico",
+        "stock": 18,
+        "imagen": "ImagenesDeHelados\/2024\/crema americana_crema.jpg"
+    }
+]

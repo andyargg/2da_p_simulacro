@@ -13,6 +13,7 @@ class HeladoModel{
         if (!file_exists($this->archivoJson)){
             return [];
         }
+
         return json_decode(file_get_contents($this->archivoJson), true);
     }
     public function guardarHelados($helados) {
@@ -20,8 +21,9 @@ class HeladoModel{
             return $helado !== null;
         });
     
-        // Guarda solo los helados válidos en el archivo JSON
-        file_put_contents($this->archivoJson, json_encode(array_values($helados)));
+        file_put_contents($this->archivoJson, json_encode(array_values($helados), JSON_PRETTY_PRINT));
+
+        
     }
     
 
@@ -39,6 +41,7 @@ class HeladoModel{
         }
 
         $nuevoHelado = [
+            'dia' => date('d-m-Y'),
             'id' => $id,
             'sabor' => $sabor,
             'precio' => $precio,
