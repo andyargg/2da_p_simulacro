@@ -62,4 +62,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(['error' => 'Accion no reconocida']);
             break;
     }
-} 
+} elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+    $action = $_GET['action'] ?? '';
+
+    switch ($action) {
+        case 'modificarVenta':
+            $controller = new VentaController();
+            $controller->modificarVenta();
+            break;
+
+        default:
+            echo json_encode(['error' => 'Acción no reconocida']);
+            break;
+    }
+}

@@ -112,5 +112,27 @@ class VentaModel{
         }
         return $ventasFiltradasVaso;
     }
-
+    public function modificarVenta($id, $email, $tipo, $vaso, $cantidad) {
+        $ventas = $this->obtenerVentas();
+        $ventaModificada = false;
+    
+        foreach ($ventas as &$venta) {
+            if ($venta['id'] === $id) {
+                $venta['email'] = $email;
+                $venta['tipo'] = $tipo;
+                $venta['vaso'] = $vaso;
+                $venta['cantidad'] = $cantidad;
+                $ventaModificada = true;
+                break;
+            }
+        }
+    
+        if ($ventaModificada) {
+            file_put_contents('ventas.json', json_encode($ventas, JSON_PRETTY_PRINT));
+            return ['resultado' => 'Venta modificada exitosamente'];
+        } else {
+            return ['error' => 'No existe el id'];
+        }
+    }
+    
 }

@@ -22,15 +22,31 @@ class VentaController{
             mkdir($directory, 0777, true);  
         }
 
-        // Ruta absoluta para la imagen
         $imagenPath = $directory . $sabor . '_' . $tipo . '_' . strtok($email, '@') . '_' . date('d-m-Y') . '.jpg';
-
-        // Mover el archivo subido a la carpeta correspondiente
+        
         if (move_uploaded_file($_FILES['imagen']['tmp_name'], $imagenPath)) {
             $resultado = $this->model->altaVenta($email, $sabor, $tipo, $vaso, $cantidad, $imagenPath);
             echo json_encode(['resultado' => $resultado]);
         } else {
             echo json_encode(['resultado' => 'Error al subir la imagen']);
+        }
+    }
+    public function modificarVenta(){
+        $input = file_get_contents('php://input');
+        $data = json_decode($input, true); 
+    
+        $id = $data['id'] ?? null;
+        $email = $data['email'] ?? null;
+        $tipo = $data['tipo'] ?? null;
+        $vaso = $data['vaso'] ?? null;
+        $cantidad = $data['cantidad'] ?? null;
+
+        
+        if ($id && $email && $tipo && $vaso && $cantidad) {
+            $resultado = $this->model->modificarVenta($id, $email, $tipo, $vaso, $cantidad);
+            echo json_encode($resultado);
+        } else {
+            echo json_encode(['error' => 'Datos incompletos']);
         }
     }
 }

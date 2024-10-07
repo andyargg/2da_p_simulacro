@@ -1,21 +1,21 @@
 [
     {
         "id": 5453,
-        "email": "usuario1@gmail.com",
+        "email": "andresarguin04@gmail.com",
         "sabor": "crema americana",
         "tipo": "crema",
-        "vaso": "plastico",
-        "cantidad": "5",
+        "vaso": "cucurucho",
+        "cantidad": "20",
         "fecha": "07-10-2024",
         "imagen": "\/1ra_parte_simulacro\/ImagenesDeLaVenta\/2024\/crema americana_crema_usuario1_07-10-2024.jpg"
     },
     {
         "id": 931,
-        "email": "usuario1@gmail.com",
+        "email": "oholaaa@gmail.com",
         "sabor": "crema americana",
         "tipo": "crema",
         "vaso": "plastico",
-        "cantidad": "5",
+        "cantidad": "20",
         "fecha": "07-10-2024",
         "imagen": "\/1ra_parte_simulacro\/ImagenesDeLaVenta\/2024\/crema americana_crema_usuario1_07-10-2024.jpg"
     },
